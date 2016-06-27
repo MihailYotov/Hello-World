@@ -1,6 +1,4 @@
-import { Component } from 'angular2/core';
-//<a href="#/nested-view">Nested View</a>
-
+import {Component} from 'angular2/core';
 
 @Component({
     selector: 'navigation',

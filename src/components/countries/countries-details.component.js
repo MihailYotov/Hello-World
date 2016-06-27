@@ -1,14 +1,41 @@
-import { Component } from 'angular2/core';
+import {Component} from 'angular2/core';
+import {DetailRow} from './detail-row.component';
+import {TransformKeysPipe} from './transformKeys.pipe';
 
 @Component({
     selector: 'country-details',
+    inputs: [
+        'details'
+    ],
+    pipes: [
+        TransformKeysPipe
+    ],
     template: `
         <div>
-            <h1>Details</h1>
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloribus in officia praesentium vel. Ad aperiam distinctio earum labore obcaecati provident! Pariatur quidem repellendus veritatis? Explicabo illum, modi. Inventore, sint.</p>
+            <h1></h1>
+           <div>
+             <table>
+             <tr *ngFor="#detailData of details | transformkeys">
+                <detail-row
+                [detailKey]="detailData.key"
+                [detailVal]="detailData.val"
+                ></detail-row>
+             </tr>
+             </table>
+           </div>
         </div>
-    `
+    `,
+    directives: [DetailRow]
 })
 
 export class CountryDetails {
+    constructor() {
+        // providers:[TransformKeysPipe]
+        // constructor(mypipe:TransformKeysPipe) {
+        //this.shit = mypipe.transform(this.details, [])
+    }
+
+    ngOnInit() {
+        this.allDetails = this.details;
+    }
 }

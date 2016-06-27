@@ -4,13 +4,10 @@
   "description": "Simple project using Angular 2 and with ES6",
   "scripts": {
     "postinstall": "webdriver-manager update",
-    "start": "concurrent --kill-others \"gulp \" \"lite-server\"",
+    "start": "npm run serve",
     "build": "gulp",
     "watch": "gulp watch",
     "clean": "gulp clean",
-    "test": "npm run unit",
-    "unit": "karma start --single-run",
-    "tdd": "karma start",
     "serve": "concurrently \"npm run build\" \"http-server public\""
   },
   "main": "index.js",
@@ -43,7 +40,7 @@
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
-    "lite-server": "^2.2.0",
+    "http-server": "^0.9.0",
     "object-assign": "^4.0.1",
     "phantomjs-prebuilt": "^2.1.3",
     "vinyl-buffer": "^1.0.0",

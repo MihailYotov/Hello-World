@@ -1,8 +1,9 @@
-import { Component } from 'angular2/core';
-import { HTTP_PROVIDERS} from 'angular2/http';
+import {Component} from 'angular2/core';
+import {HTTP_PROVIDERS} from 'angular2/http';
+import {COMMON_DIRECTIVES} from 'angular2/common';
 
-import { HttpService } from '../../services/countries-service'
-import { CountryDetails } from './countries-details.component'
+import {HttpService} from '../../services/countries-service'
+import {CountryDetails} from './countries-details.component'
 
 @Component({
     selector: 'all-countries',
@@ -12,24 +13,30 @@ import { CountryDetails } from './countries-details.component'
 
             <div class="all-countries">
                 <div *ngFor="#data of httpData" >
-                    <span>{{data?.name}}</span>
+                    <a (click)="passDetails(data)">{{data?.name}}</a>
                 </div>
             </div>
 
             <div class="country-details">
-                <country-details></country-details>
+                <country-details
+                [details]="details"
+                ></country-details>
             </div>
 
         </div>
     `,
     providers: [HTTP_PROVIDERS],
-    directives:[CountryDetails]
+    directives: [
+        CountryDetails,
+        COMMON_DIRECTIVES
+    ]
 })
 
 export class AllCountries {
     constructor(httpService:HttpService) {
         this._httpService = httpService;
         this.httpData = [];
+        this.details = this.details || {};
 
         this._httpService.getData()
             .then(data => {
@@ -37,6 +44,9 @@ export class AllCountries {
             }, error => {
                 console.warn(error.message)
             })
+    }
 
+    passDetails(data) {
+        this.details = data;
     }
 }
