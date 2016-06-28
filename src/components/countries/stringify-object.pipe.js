@@ -29,12 +29,16 @@ export class StringifyObject {
                     return result;
                     break;
                 case '[object Array]':
-                    for (let i = 0; i < input.length; i++) {
-                        if (input[i + 1]) {
-                            result += input[i] + ', '
-                        } else {
-                            result += input[i]
+                    if (input.length) {
+                        for (let i = 0; i < input.length; i++) {
+                            if (input[i + 1]) {
+                                result += input[i] + ', '
+                            } else {
+                                result += input[i]
+                            }
                         }
+                    } else {
+                        result = 'N/A'
                     }
                     return result;
                     break;

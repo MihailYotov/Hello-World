@@ -11,7 +11,7 @@
     "serve": "concurrently \"npm run build\" \"http-server public\""
   },
   "main": "index.js",
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/mhl-yo/Hello-World.git"
   },
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/mhl-yo/Hello-World#readme",
   "devDependencies": {
-    "babel-core": "6.6.4",
+    "babel-core": "^6.10.4",
     "babel-eslint": "^6.0.2",
     "babel-plugin-angular2-annotations": "^5.0.0",
     "babel-plugin-transform-class-properties": "^6.6.0",
@@ -50,6 +50,7 @@
   "dependencies": {
     "angular2": "2.0.0-beta.13",
     "es6-shim": "^0.35.0",
+    "font-awesome": "^4.6.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
     "zone.js": "^0.6.6"

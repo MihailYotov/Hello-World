@@ -4,6 +4,7 @@ import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 import { Navigation } from '../components/navigation/navigation.component';
 import { HomeView } from '../components/home-view/home-view.component.js';
 import { AllCountries } from '../components/countries/countries-all.component';
+import { CompareCountries } from '../components/compare-countries/compare-countries.component';
 
 @Component({
     selector: 'my-app',
@@ -28,6 +29,11 @@ import { AllCountries } from '../components/countries/countries-all.component';
         path: '/countries',
         name: 'AllCountries',
         component: AllCountries
+    },
+    {
+        path: '/compare',
+        name: 'Compare',
+        component: CompareCountries
     }
 ])
 

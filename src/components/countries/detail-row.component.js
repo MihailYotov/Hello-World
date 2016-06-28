@@ -13,18 +13,15 @@ import {StringifyObject} from './stringify-object.pipe.js';
         StringifyObject
     ],
     template: `
-            <td>{{detailKey | capitalize}} : </td>
-            <td>{{detailVal | stringifyObject}}</td>
+            <td class="td-key">{{detailKey | capitalize}} : </td>
+            <td class="td-val">{{detailVal | stringifyObject}}</td>
     `
 })
 
 export class DetailRow {
     constructor() {
-        console.log(this.detailData);
     }
 
     ngOnInit() {
-        this.detailData = this.detailData || {};
-        console.log(this.detailData);
     }
 }

@@ -26,12 +26,14 @@ body {
 
 //COMMON
 html, body {
-  background-color: teal;
+  //background-color: teal;
+  background-color: #40a070;
 }
 
 h1 {
   font-size: 25px;
   padding: 10px;
+  color: #880000;
 }
 
 .flex-center {
@@ -42,20 +44,26 @@ h1 {
 
 //COMPONENTS
 .navigation {
+  background-color: teal;
   height: 70px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 10px 2%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   a {
     text-decoration: none;
     font-size: 35px;
-    padding-right: 10px;
+    padding-right: 20px;
+    color: #880000;
 
   }
   a:hover {
     font-size: 50px;
+  }
+
+  a:visited {
+    color: #880000;
   }
 }
 
@@ -64,6 +72,7 @@ h1 {
   min-height: 300px;
   background-color: #40a070;
   margin: 0 auto;
+  padding: 0 2%;
 }
 
 #logo {
@@ -75,14 +84,68 @@ h1 {
 .all-countries {
   padding: 10px;
   display: inline-block;
+  float: left;
 }
 
 .country-details {
   position: fixed;
   top: 120px;
-  left: 400px;
+  left: 35%;
   min-width: 40%;
   height: 90%;
   //background-color: #006600;
   display: inline-block;
+}
+
+.country-item {
+
+}
+
+.country-item:hover {
+  color: #880000;
+  cursor: pointer;
+}
+
+.td-key {
+  color: #880000;
+  min-width: 130px;
+}
+
+.td-val {
+  min-width: 130px;
+}
+
+.compare-ico:hover {
+  cursor: help;
+}
+
+.compare-ico:active {
+  color: #880000;
+}
+
+.flex-right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.float-right {
+  float: right;
+  display: inline-block;
+}
+
+.float-left {
+  float: left;
+  display: inline-block;
+}
+
+.country-table {
+  table, tr, td{
+    border: 1px solid #880000;
+    border-collapse: collapse;
+  }
+  td{
+    padding: 5px;
+  }
+
 }
