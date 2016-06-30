@@ -5,14 +5,21 @@ import {COMMON_DIRECTIVES} from 'angular2/common';
 import {HttpService} from '../../services/countries-service'
 import {CountryDetails} from './countries-details.component'
 import {CompareList} from './compare-list.component'
+import {AlphabetNavigation} from './alphabet-navigation'
+import {LetterPipe} from './lettet-sort.pipe'
 
 @Component({
     selector: 'all-countries',
     template: `
         <div class="home-view">
+        
+            <alphabet-navigation
+            (letterChanged)="chosenletter = $event"
+            ></alphabet-navigation>
+
             <div class="all-countries">
                 <h1>All Countries</h1>
-                <div *ngFor="#data of httpData" >
+                <div *ngFor="#data of httpData | letter: chosenletter" >
                     <span class="country-item" (click)="passDetails(data)">{{data?.name}}</span>
                     <i class="fa fa-check-square-o compare-ico" aria-hidden="true" (click)="addItemToCompareList(data)"></i>
                 </div>
@@ -34,9 +41,13 @@ import {CompareList} from './compare-list.component'
     `,
     providers: [HTTP_PROVIDERS],
     directives: [
+        AlphabetNavigation,
         CompareList,
         CountryDetails,
         COMMON_DIRECTIVES
+    ],
+    pipes: [
+        LetterPipe
     ]
 })
 
@@ -46,6 +57,8 @@ export class AllCountries {
         this.httpData = [];
         this.details = this.details || {};
         this.compareItems = this.compareItems || [];
+        this.chosenletter = this.chosenletter || '';
+
 
         this._httpService.getData()
             .then(data => {
