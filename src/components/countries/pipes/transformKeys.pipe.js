@@ -10,11 +10,6 @@ export class TransformKeysPipe {
             let result = [];
             for (var i = 0; i < Object.keys(inputObj).length; i++) {
                 let tempObj = {};
-                //WORKS
-                //tempObj[Object.keys(inputObj)[i]] = inputObj[Object.keys(inputObj)[i]];
-                //WORKS
-                //tempObj.key = inputObj[Object.keys(inputObj)[i]];
-
                 tempObj.key = Object.keys(inputObj)[i];
                 tempObj.val = inputObj[Object.keys(inputObj)[i]] ? inputObj[Object.keys(inputObj)[i]] : 'N/A';
                 result.push(tempObj);

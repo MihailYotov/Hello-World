@@ -6,9 +6,11 @@ import {Component} from 'angular2/core';
         'item'
     ],
     template: `
-            <td>{{item?.name}}</td>
-            <td>{{item?.capital}}</td>
-            <td>{{item?.population}}</td>
+            <div class="country-table">
+                <span class="ct-td">{{item?.name}}</span>
+                <span class="ct-td">{{item?.area}}</span>
+                <span class="ct-td">{{item?.population}}</span>
+            </div>
     `
 })
 

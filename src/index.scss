@@ -140,28 +140,30 @@ h1 {
 }
 
 .country-table {
-  table, tr, td{
-    border: 1px solid #880000;
-    border-collapse: collapse;
-  }
-  td{
-    padding: 5px;
-  }
+}
+.ct-tr {
+  width: 100%;
 }
 
-.alphabet-navigation{
+.ct-td {
+  border: 1px solid #880000;
+  display: inline-block;
+  width: 200px;
+}
+
+.alphabet-navigation {
   height: 40px;
   margin: 0 auto;
   padding: 10px 2%;
 
-  ul{
+  ul {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     list-style-type: none;
   }
 
-  li{
+  li {
 
   }
 

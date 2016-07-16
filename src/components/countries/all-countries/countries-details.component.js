@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
-import {DetailRow} from './detail-row.component';
-import {TransformKeysPipe} from './transformKeys.pipe';
+
+import {DetailRow} from './detail-row.component.js';
+import {TransformKeysPipe} from './../pipes/transformKeys.pipe.js';
 
 @Component({
     selector: 'country-details',
@@ -30,12 +31,10 @@ import {TransformKeysPipe} from './transformKeys.pipe';
 
 export class CountryDetails {
     constructor() {
-        // providers:[TransformKeysPipe]
-        // constructor(mypipe:TransformKeysPipe) {
-        //this.shit = mypipe.transform(this.details, [])
+
     }
 
     ngOnInit() {
-        this.allDetails = this.details;
+
     }
 }

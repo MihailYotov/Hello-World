@@ -5,8 +5,10 @@ import { ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy } from 'angula
 
 import { MyApp } from './app/app.component';
 import { HttpService } from './services/countries-service';
+import { CompareCountriesData } from './services/compare-countries';
 
 bootstrap(MyApp, [
+    CompareCountriesData,
     HttpService,
     ROUTER_PROVIDERS,
     HTTP_PROVIDERS,

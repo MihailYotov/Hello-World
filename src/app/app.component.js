@@ -3,8 +3,8 @@ import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { Navigation } from '../components/navigation/navigation.component';
 import { HomeView } from '../components/home-view/home-view.component.js';
-import { AllCountries } from '../components/countries/countries-all.component';
-import { CompareCountries } from '../components/compare-countries/compare-countries.component';
+import { CompareCountries } from '../components/countries/compare-countries/compare-countries.component';
+import { CountriesMain } from '../components/countries/countries-main';
 
 @Component({
     selector: 'my-app',
@@ -26,9 +26,9 @@ import { CompareCountries } from '../components/compare-countries/compare-countr
         useAsDefault: true
     },
     {
-        path: '/countries',
-        name: 'AllCountries',
-        component: AllCountries
+        path: '/countries/...',
+        name: 'CountriesMain',
+        component: CountriesMain
     },
     {
         path: '/compare',

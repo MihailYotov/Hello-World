@@ -63,7 +63,7 @@ gulp.task('clean', () => {
     return del('public');
 });
 
-gulp.task('default', ['copy', 'watch']);
+gulp.task('default', ['build', 'copy', 'sass:watch']);
 
 function bundle(b) {
     return b.bundle()

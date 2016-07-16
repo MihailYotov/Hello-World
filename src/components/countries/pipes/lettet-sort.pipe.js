@@ -5,7 +5,6 @@ import {Pipe} from 'angular2/core';
 })
 export class LetterPipe {
     transform(input, letter) {
-        debugger;
         if (letter != '') {
             var result = [];
 

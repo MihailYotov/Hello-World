@@ -2,11 +2,12 @@ import {Component} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {COMMON_DIRECTIVES} from 'angular2/common';
 
-import {HttpService} from '../../services/countries-service'
-import {CountryDetails} from './countries-details.component'
-import {CompareList} from './compare-list.component'
+import {HttpService} from '../../../services/countries-service'
+import {CountryDetails} from './countries-details.component.js'
+import {CompareList} from './compare-list.component.js'
 import {AlphabetNavigation} from './alphabet-navigation'
-import {LetterPipe} from './lettet-sort.pipe'
+import {LetterPipe} from './../pipes/lettet-sort.pipe.js'
+import {CompareCountriesData} from '../../../services/compare-countries'
 
 @Component({
     selector: 'all-countries',
@@ -39,7 +40,9 @@ import {LetterPipe} from './lettet-sort.pipe'
 
         </div>
     `,
-    providers: [HTTP_PROVIDERS],
+    providers: [
+        HTTP_PROVIDERS
+    ],
     directives: [
         AlphabetNavigation,
         CompareList,
@@ -52,12 +55,13 @@ import {LetterPipe} from './lettet-sort.pipe'
 })
 
 export class AllCountries {
-    constructor(httpService:HttpService) {
+    constructor(httpService:HttpService, compareData:CompareCountriesData) {
         this._httpService = httpService;
         this.httpData = [];
         this.details = this.details || {};
         this.compareItems = this.compareItems || [];
         this.chosenletter = this.chosenletter || '';
+        this._compareData = compareData;
 
 
         this._httpService.getData()
@@ -83,6 +87,7 @@ export class AllCountries {
 
         if (!hasIt) {
             this.compareItems.push(data);
+            this._compareData.saveData(data);
         }
     }
 }

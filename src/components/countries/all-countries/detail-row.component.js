@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
-import {CapitalizePipe} from './capitalize.pipe';
-import {StringifyObject} from './stringify-object.pipe.js';
+
+import {CapitalizePipe} from './../pipes/capitalize.pipe.js';
+import {StringifyObject} from './../pipes/stringify-object.pipe.js';
 
 @Component({
     selector: 'detail-row',
